@@ -1,10 +1,20 @@
-import './App.css';
-import Search from './components/Seacrh'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Search from './components/Search';
+import FlightList from './components/FlightList';
+
 function App() {
+
   return (
-    <div className="App">
-      <Search/>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Search />} />
+        <Route
+          path="/flight-results"
+          element={<FlightList />}
+        />
+      </Routes>
+    </Router>
   );
 }
 
