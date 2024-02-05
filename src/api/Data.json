@@ -1,0 +1,53 @@
+{
+  "airports": [
+    {"code": "IST", "city": "Istanbul"},
+    {"code": "ANK", "city": "Ankara"},
+    {"code": "AYT", "city": "Antalya"}
+  ],
+  "flights": [
+    {
+      "departureAirport": "IST",
+      "arrivalAirport": "ANK",
+      "departureDate": "2024-02-10",
+      "returnDate": "2024-02-15",
+      "oneWayFlight": false,
+      "details": {
+        "airline": "THY",
+        "city": "Istanbul - Ankara",
+        "departureTime": "12:00",
+        "returnTime": "14:30",
+        "flightDuration": "2 hours",
+        "price": 250.00
+      }
+    },
+    {
+      "departureAirport": "AYT",
+      "arrivalAirport": "IST",
+      "departureDate": "2024-03-05",
+      "returnDate": null,
+      "oneWayFlight": true,
+      "details": {
+        "airline": "PGS",
+        "city": "Antalya - Istanbul",
+        "departureTime": "08:30",
+        "returnTime": null,
+        "flightDuration": "3 hours",
+        "price": 180.00
+      }
+    },{
+      "departureAirport": "AYT",
+      "arrivalAirport": "IST",
+      "departureDate": "2024-03-05",
+      "returnDate": null,
+      "oneWayFlight": true,
+      "details": {
+        "airline": "PGS",
+        "city": "Antalya - Istanbul",
+        "departureTime": "08:30",
+        "returnTime": null,
+        "flightDuration": "3 hours",
+        "price": 900.00
+      }
+    }
+  ]
+}
