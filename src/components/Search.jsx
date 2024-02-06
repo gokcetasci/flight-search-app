@@ -4,6 +4,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
 import Data from "../api/Data.json";
 import FlightList from "./FlightList";
+import { MdFlightTakeoff } from "react-icons/md";
+import { MdFlightLand } from "react-icons/md";
+import { MdDateRange } from "react-icons/md";
+import { IoMdCalendar } from "react-icons/io";
+import { FaArrowRightArrowLeft } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa6";
 
 const Search = () => {
   const [departureAirport, setDepartureAirport] = useState("");
@@ -38,59 +44,171 @@ const Search = () => {
   }));
 
   return (
-    <div className="container flex items-center">
-      <div>
-        <label>From:</label>
-        <Select
-          options={airportOptions}
-          value={airportOptions.find((option) => option.value === departureAirport)}
-          onChange={(selectedOption) => setDepartureAirport(selectedOption.value)}
-          placeholder="Select Departure Airport"
-        />
+    <div className="w-full h-full flex items-center justify-center flex flex-col">
+      <div
+        className="container flex flex-col items-center justify-center rounded-3xl md:w-1/2 p-20 backdrop-blur-sm bg-[#3b82f6]/50 space-y-4"
+        style={{ boxShadow: "0 0 16px #bfdbfe" }}
+      >
+        <div
+          className="w-full flex flex-row items-center justify-center mb-4 bg-transparent rounded-lg"
+          style={{ boxShadow: "0 0 16px #bfdbfe" }}
+        >
+          <button
+            onClick={() => setOneWay(false)}
+            className={`flex flex-row items-center justify-center text-white font-medium tracking-wide w-1/2 p-3 rounded-l-lg  ${
+              !oneWay ? "bg-sky-500 " : "bg-blue-400/50 "
+            }`}
+          >
+            ROUND TRIP
+            <FaArrowRightArrowLeft className="ml-2" />
+          </button>
+          <button
+            onClick={() => {
+              setOneWay(true);
+              setReturnDate(null);
+            }}
+            className={`flex flex-row items-center justify-center text-white w-1/2 font-medium tracking-wide p-3 rounded-r-lg ${
+              !oneWay ? "bg-blue-400/50 " : "bg-sky-500 "
+            }`}
+          >
+            ONE WAY
+            <FaArrowRight className="ml-2" />
+          </button>
+        </div>
+        <div className="flex flex-col md:flex-row items-center md:space-x-6 ">
+          <div>
+            <div className="flex flex-row items-center">
+              <MdFlightTakeoff className="fill-white ml-3 mr-2" />
+              <label className="text-white font-semibold">FROM:</label>
+            </div>
+            <Select
+              options={airportOptions}
+              value={airportOptions.find(
+                (option) => option.value === departureAirport
+              )}
+              onChange={(selectedOption) =>
+                setDepartureAirport(selectedOption.value)
+              }
+              placeholder="Select Departure Airport"
+              styles={{
+                control: (provided) => ({
+                  ...provided,
+                  "@media (min-width: 768px)": {
+                    width: "150px", 
+                  },
+                  "@media (min-width: 1024px)": {
+                    width: "250px", 
+                  },
+                  backgroundColor: "blue-400/25",
+                  borderRadius: "20px",
+                  color: "#ffffff",
+                  borderWidth: "2px",
+                  borderColor: "white", 
+                  ":hover": {
+                    borderColor: "#3b82f6", 
+                  },    
+                }),
+                placeholder: (provided) => ({
+                  ...provided,
+                  color: "#e2e8f0", 
+                }),
+                singleValue: (provided) => ({
+                  ...provided,
+                  color: "#ffffff", 
+                }),
+              }}
+            />
+          </div>
+
+          <div>
+            <div className="flex flex-row items-center">
+              <MdFlightLand className="fill-white ml-3 mr-2" />
+              <label className="text-white font-semibold">TO:</label>
+            </div>
+            <Select
+              options={airportOptions}
+              value={airportOptions.find(
+                (option) => option.value === arrivalAirport
+              )}
+              onChange={(selectedOption) =>
+                setArrivalAirport(selectedOption.value)
+              }
+              placeholder="Select Arrival Airport"
+              styles={{
+                control: (provided) => ({
+                  ...provided,
+                  "@media (min-width: 768px)": {
+                    width: "150px", 
+                  },
+                  "@media (min-width: 1024px)": {
+                    width: "250px",
+                  },
+                  backgroundColor: "blue-400/25",
+                  borderRadius: "20px",
+                  color: "#ffffff",
+                  borderWidth: "2px",
+                  borderColor: "white", 
+                  ":hover": {
+                    borderColor: "#3b82f6", 
+                  },                }),
+                placeholder: (provided) => ({
+                  ...provided,
+                  color: "#e2e8f0", 
+                }),
+                singleValue: (provided) => ({
+                  ...provided,
+                  color: "#ffffff", 
+                }),
+              }}
+            />
+          </div>
+        </div>
+        <div className="flex flex- space-x-4">
+          <div>
+            <div className="flex flex-row items-center">
+              <MdDateRange className="fill-white ml-3 mr-2" />
+              <label className="text-white font-semibold">DEPART:</label>
+            </div>
+            <DatePicker
+              selected={departureDate}
+              onChange={(date) => setDepartureDate(date)}
+              dateFormat="dd-MM-yyyy"
+              className="py-2 px-3 rounded-full border-[2px] border-white hover:border-[2px] hover:border-blue-700 focus:outline-none bg-blue-400/25 text-white cursor-pointer"
+              placeholderText="Select Departure Date"
+              wrapperClassName="date-picker-wrapper"
+            />
+          </div>
+          {!oneWay && (
+            <div>
+              <div className="flex flex-row items-center">
+                <IoMdCalendar className="fill-white ml-3 mr-2" />
+                <label className="text-white font-semibold">RETURN:</label>
+              </div>
+              <DatePicker
+                selected={returnDate}
+                onChange={(date) => setReturnDate(date)}
+                dateFormat="dd-MM-yyyy"
+                disabled={oneWay}
+                minDate={departureDate}
+                className="py-2 px-3 rounded-full border-[2px] border-white hover:border-[2px] hover:border-blue-700  bg-blue-400/25 focus:outline-none  text-white cursor-pointer"
+                placeholderText="Select Return Date"
+                wrapperClassName="date-picker-wrapper"
+              />
+            </div>
+          )}
+        </div>
+        <div className="flex items-center justify-center pt-2 w-full">
+          <button
+            onClick={handleSearch}
+            className="py-3 w-1/2 bg-blue-200 text-blue-700 rounded-full text-[18px] flex flex-row items-center justify-center hover:scale-105 font-semibold"
+            style={{ boxShadow: "0 0 16px #ffffff" }}          >
+            Search
+          </button>
+        </div>
       </div>
-
       <div>
-        <label>To:</label>
-        <Select
-          options={airportOptions}
-          value={airportOptions.find((option) => option.value === arrivalAirport)}
-          onChange={(selectedOption) => setArrivalAirport(selectedOption.value)}
-          placeholder="Select Arrival Airport"
-        />
+        <FlightList searchResults={searchResults} />
       </div>
-
-      <div>
-        <label>DEPART:</label>
-        <DatePicker
-          selected={departureDate}
-          onChange={(date) => setDepartureDate(date)}
-          dateFormat="dd-MM-yyyy"
-        />
-
-        <label>RETURN:</label>
-        <DatePicker
-          selected={returnDate}
-          onChange={(date) => setReturnDate(date)}
-          dateFormat="dd-MM-yyyy"
-          disabled={oneWay}
-          minDate={departureDate}
-        />
-      </div>
-
-      <div>
-        <label>One Way:</label>
-        <input
-          type="checkbox"
-          checked={oneWay}
-          onChange={(e) => setOneWay(e.target.checked)}
-        />
-      </div>
-
-      <div>
-        <button onClick={handleSearch}>Search</button>
-      </div>
-
-      <FlightList searchResults={searchResults} />
     </div>
   );
 };
