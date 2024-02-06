@@ -1,52 +1,82 @@
 {
   "airports": [
-    {"code": "IST", "city": "Istanbul"},
-    {"code": "ANK", "city": "Ankara"},
-    {"code": "AYT", "city": "Antalya"}
+    {"code": "SAW", "city": "Istanbul"},
+    {"code": "ESB", "city": "Ankara"},
+    {"code": "FRA", "city": "Frankfurt"},
+    {"code": "LHR", "city": "London"},
+    {"code": "CDG", "city": "Paris"},
+    {"code": "JFK", "city": "New York"},
+    {"code": "AMS", "city": "Amsterdam"},
+    {"code": "HND", "city": "Tokyo"}
   ],
   "flights": [
     {
-      "departureAirport": "IST",
-      "arrivalAirport": "ANK",
+      "departureAirport": "SAW",
+      "arrivalAirport": "ESB",
       "departureDate": "2024-02-10",
       "returnDate": "2024-02-15",
       "oneWayFlight": false,
       "details": {
-        "airline": "THY",
+        "departureAirportName": "Sabiha Gökçen International Airport",
+        "returnAirportName":"Esenboğa International Airport",
         "city": "Istanbul - Ankara",
-        "departureTime": "12:00",
-        "returnTime": "14:30",
-        "flightDuration": "2 hours",
-        "price": 250.00
+        "firstDepartureTime": "12:00",
+        "firstArrivalTime": "14:30",
+        "firstFlightDuration": "2 hours",
+        "firstPrice": 250.00,
+        "secondDepartureTime": "03:30",
+        "secondArrivalTime": "05:30",
+        "secondFlightDuration": "2 hours",
+        "secondPrice": 450.00
       }
     },
     {
-      "departureAirport": "AYT",
-      "arrivalAirport": "IST",
+      "departureAirport": "FRA",
+      "arrivalAirport": "SAW",
       "departureDate": "2024-03-05",
       "returnDate": null,
       "oneWayFlight": true,
       "details": {
-        "airline": "PGS",
-        "city": "Antalya - Istanbul",
-        "departureTime": "08:30",
-        "returnTime": null,
-        "flightDuration": "3 hours",
-        "price": 180.00
+        "departureAirportName": "Frankfurt Airport",
+        "city": "Frankfurt - Istanbul",
+        "firstDepartureTime": "08:30",
+        "firstArrivalTime": "11.30",
+        "firstFlightDuration": "3 hours",
+        "firstPrice": 180.00
       }
     },{
-      "departureAirport": "AYT",
-      "arrivalAirport": "IST",
+      "departureAirport": "SAW",
+      "arrivalAirport": "FRA",
       "departureDate": "2024-03-05",
       "returnDate": null,
       "oneWayFlight": true,
       "details": {
-        "airline": "PGS",
-        "city": "Antalya - Istanbul",
-        "departureTime": "08:30",
-        "returnTime": null,
-        "flightDuration": "3 hours",
-        "price": 900.00
+        "departureAirportName": "Sabiha Gökçen International Airport",
+        "city": "Istanbul - Frankfurt",
+        "firstDepartureTime": "13:30",
+        "firstArrivalTime": "16.30",
+        "firstFlightDuration": "3 hours",
+        "firstPrice": 900.00
+      }
+    },
+    {
+      "departureAirport": "ESB",
+      "arrivalAirport": "FRA",
+      "departureDate": "2024-02-20",
+      "returnDate": "2024-02-28",
+      "oneWayFlight": false,
+      "details": {
+        "departureAirportName": "Esenboğa International Airport",
+        "returnAirportName":"Frankfurt Airport",
+        "city": "Ankara - Frankfurt",
+        "firstDepartureTime": "18:00",
+        "firstArrivalTime": "22:00",
+        "firstFlightDuration": "4 hours",
+        "firstPrice": 360.00,
+        "secondDepartureTime": "07:30",
+        "secondArrivalTime": "11:30",
+        "secondFlightDuration": "4 hours",
+        "secondPrice": 670.00
       }
     }
   ]
