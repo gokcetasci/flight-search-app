@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Select from "react-select";
 import Data from "../api/Data.json";
 import FlightList from "./FlightList";
 
@@ -30,59 +31,66 @@ const Search = () => {
     setSearchResults(filteredFlights);
   };
 
+  // react-select options
+  const airportOptions = Data.airports.map((airport) => ({
+    label: airport.city,
+    value: airport.code,
+  }));
+
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <label>Kalkış Havaalanı:</label>
-      <select
-        value={departureAirport}
-        onChange={(e) => setDepartureAirport(e.target.value)}
-      >
-        <option value="">Select Departure Airport</option>
-        {Data.airports.map((airport) => (
-          <option key={airport.code} value={airport.code}>
-            {airport.city}
-          </option>
-        ))}
-      </select>
+    <div className="container flex items-center">
+      <div>
+        <label>From:</label>
+        <Select
+          options={airportOptions}
+          value={airportOptions.find((option) => option.value === departureAirport)}
+          onChange={(selectedOption) => setDepartureAirport(selectedOption.value)}
+          placeholder="Select Departure Airport"
+        />
+      </div>
 
-      <label>Varış Havaalanı:</label>
-      <select
-        value={arrivalAirport}
-        onChange={(e) => setArrivalAirport(e.target.value)}
-      >
-        <option value="">Select Arrival Airport</option>
-        {Data.airports.map((airport) => (
-          <option key={airport.code} value={airport.code}>
-            {airport.city}
-          </option>
-        ))}
-      </select>
+      <div>
+        <label>To:</label>
+        <Select
+          options={airportOptions}
+          value={airportOptions.find((option) => option.value === arrivalAirport)}
+          onChange={(selectedOption) => setArrivalAirport(selectedOption.value)}
+          placeholder="Select Arrival Airport"
+        />
+      </div>
 
-      <label>Kalkış Tarihi:</label>
-      <DatePicker
-        selected={departureDate}
-        onChange={(date) => setDepartureDate(date)}
-        dateFormat="dd-MM-yyyy"
-      />
+      <div>
+        <label>DEPART:</label>
+        <DatePicker
+          selected={departureDate}
+          onChange={(date) => setDepartureDate(date)}
+          dateFormat="dd-MM-yyyy"
+        />
 
-      <label>Dönüş Tarihi:</label>
-      <DatePicker
-        selected={returnDate}
-        onChange={(date) => setReturnDate(date)}
-        dateFormat="dd-MM-yyyy"
-        disabled={oneWay}
-      />
+        <label>RETURN:</label>
+        <DatePicker
+          selected={returnDate}
+          onChange={(date) => setReturnDate(date)}
+          dateFormat="dd-MM-yyyy"
+          disabled={oneWay}
+          minDate={departureDate}
+        />
+      </div>
 
-      <label>Tek Yönlü Uçuş:</label>
-      <input
-        type="checkbox"
-        checked={oneWay}
-        onChange={(e) => setOneWay(e.target.checked)}
-      />
+      <div>
+        <label>One Way:</label>
+        <input
+          type="checkbox"
+          checked={oneWay}
+          onChange={(e) => setOneWay(e.target.checked)}
+        />
+      </div>
 
-      <button onClick={handleSearch}>Search</button>
+      <div>
+        <button onClick={handleSearch}>Search</button>
+      </div>
 
-        <FlightList searchResults={searchResults}/>
+      <FlightList searchResults={searchResults} />
     </div>
   );
 };
