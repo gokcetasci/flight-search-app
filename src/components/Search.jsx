@@ -18,23 +18,37 @@ const Search = () => {
   const [returnDate, setReturnDate] = useState(null);
   const [oneWay, setOneWay] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
 
-  const handleSearch = () => {
-    if (!Data || !Data.flights) {
-      console.error("Data or Data.flights is undefined");
-      return;
+  const handleSearch = async () => {
+    try {
+      setIsSearching(true);
+
+      if (!departureAirport || !arrivalAirport || !departureDate || !returnDate) {
+        alert("Please select all options");
+        return;
+      }
+
+      if (!Data || !Data.flights) {
+        console.error("Data or Data.flights is undefined");
+        return;
+      }
+
+      const filteredFlights = Data.flights.filter((flight, index) => {
+        return (
+          flight.departureAirport === departureAirport &&
+          flight.arrivalAirport === arrivalAirport &&
+          new Date(flight.departureDate) >= departureDate &&
+          (oneWay || new Date(flight.returnDate) <= returnDate)
+        );
+      });
+
+      setSearchResults(filteredFlights);
+    } catch (error) {
+      console.error("Error during search:", error);
+    } finally {
+      setIsSearching(false);
     }
-
-    const filteredFlights = Data.flights.filter((flight, index) => {
-      return (
-        flight.departureAirport === departureAirport &&
-        flight.arrivalAirport === arrivalAirport &&
-        new Date(flight.departureDate) >= departureDate &&
-        (oneWay || new Date(flight.returnDate) <= returnDate)
-      );
-    });
-
-    setSearchResults(filteredFlights);
   };
 
   // react-select options
@@ -46,18 +60,18 @@ const Search = () => {
   return (
     <div className="w-full h-full flex items-center justify-center flex flex-col">
       <div
-        className="container flex flex-col items-center justify-center rounded-3xl md:w-1/2 p-20 backdrop-blur-sm bg-[#3b82f6]/50 space-y-4"
-        style={{ boxShadow: "0 0 16px #bfdbfe" }}
+      className={`backdrop-blur-sm bg-[#3b82f6]/50 rounded-3xl flex items-center justify-center ${searchResults.length > 0 ? "w-11/12	 p-5 flex-row space-x-4" : "p-20 flex-col space-y-4"} `}
+      style={{ boxShadow: "0 0 16px #bfdbfe" }}
       >
         <div
-          className="w-full flex flex-row items-center justify-center mb-4 bg-transparent rounded-lg"
+          className={`w-full flex flex-row items-center justify-center mb-4 bg-transparent rounded-lg  `}
           style={{ boxShadow: "0 0 16px #bfdbfe" }}
         >
           <button
             onClick={() => setOneWay(false)}
             className={`flex flex-row items-center justify-center text-white font-medium tracking-wide w-1/2 p-3 rounded-l-lg  ${
               !oneWay ? "bg-sky-500 " : "bg-blue-400/50 "
-            }`}
+            } `} 
           >
             ROUND TRIP
             <FaArrowRightArrowLeft className="ml-2" />
@@ -75,8 +89,8 @@ const Search = () => {
             <FaArrowRight className="ml-2" />
           </button>
         </div>
-        <div className="flex flex-col md:flex-row items-center md:space-x-6 ">
-          <div>
+        <div className={`flex items-center justify-center w-full  ${searchResults.length > 0 ? "flex-col" : "flex-row md:space-x-6"}`}>
+          <div className={`${searchResults.length > 0 ? "mb-2" : ""}`}>
             <div className="flex flex-row items-center">
               <MdFlightTakeoff className="fill-white ml-3 mr-2" />
               <label className="text-white font-semibold">FROM:</label>
@@ -116,11 +130,15 @@ const Search = () => {
                   ...provided,
                   color: "#ffffff", 
                 }),
+                input: (provided) => ({
+                  ...provided,
+                  color: "#ffffff", 
+                }),
               }}
             />
           </div>
 
-          <div>
+          <div className={`${searchResults.length > 0 ? "" : ""}`}>
             <div className="flex flex-row items-center">
               <MdFlightLand className="fill-white ml-3 mr-2" />
               <label className="text-white font-semibold">TO:</label>
@@ -159,12 +177,17 @@ const Search = () => {
                   ...provided,
                   color: "#ffffff", 
                 }),
+                input: (provided) => ({
+                  ...provided,
+                  color: "#ffffff", 
+                }),
+             
               }}
             />
           </div>
         </div>
-        <div className="flex flex- space-x-4">
-          <div>
+        <div  className={`w-full flex items-center justify-center  ${searchResults.length > 0 ? "flex-col " : "flex-row md:space-x-6"}`}>
+          <div className={`${searchResults.length > 0 ? "mb-2" : ""}`}>
             <div className="flex flex-row items-center">
               <MdDateRange className="fill-white ml-3 mr-2" />
               <label className="text-white font-semibold">DEPART:</label>
@@ -173,7 +196,7 @@ const Search = () => {
               selected={departureDate}
               onChange={(date) => setDepartureDate(date)}
               dateFormat="dd-MM-yyyy"
-              className="py-2 px-3 rounded-full border-[2px] border-white hover:border-[2px] hover:border-blue-700 focus:outline-none bg-blue-400/25 text-white cursor-pointer"
+              className="py-1.5 px-3 rounded-full border-[2px] border-white hover:border-[2px] hover:border-blue-700 focus:outline-none bg-blue-400/25 text-white cursor-pointer"
               placeholderText="Select Departure Date"
               wrapperClassName="date-picker-wrapper"
             />
@@ -190,19 +213,19 @@ const Search = () => {
                 dateFormat="dd-MM-yyyy"
                 disabled={oneWay}
                 minDate={departureDate}
-                className="py-2 px-3 rounded-full border-[2px] border-white hover:border-[2px] hover:border-blue-700  bg-blue-400/25 focus:outline-none  text-white cursor-pointer"
+                className="py-1.5 px-3 rounded-full border-[2px] border-white hover:border-[2px] hover:border-blue-700  bg-blue-400/25 focus:outline-none  text-white cursor-pointer"
                 placeholderText="Select Return Date"
                 wrapperClassName="date-picker-wrapper"
               />
             </div>
           )}
         </div>
-        <div className="flex items-center justify-center pt-2 w-full">
+        <div className={`flex items-center justify-center pt-2 ${searchResults.length > 0 ? "w-1/2" : "w-full "}`}>
           <button
             onClick={handleSearch}
-            className="py-3 w-1/2 bg-blue-200 text-blue-700 rounded-full text-[18px] flex flex-row items-center justify-center hover:scale-105 font-semibold"
+            className="py-3 w-full bg-blue-200 text-blue-700 rounded-full text-[18px] flex flex-row items-center justify-center hover:scale-105 font-semibold"
             style={{ boxShadow: "0 0 16px #ffffff" }}          >
-            Search
+            {isSearching ? "Searching..." : "Search"}
           </button>
         </div>
       </div>
