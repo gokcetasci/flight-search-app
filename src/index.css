@@ -2,3 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.homepage-container {
+    @apply  bg-center w-full h-screen;
+  }
+
+.date-picker-wrapper .react-datepicker__input-container input::placeholder {
+    color: #e2e8f0; 
+  }
+  
