@@ -37,25 +37,29 @@ const Search = () => {
   const handleSearch = async () => {
     try {
       setIsSearching(true);
-
+  
       if (
         !departureAirport ||
         !arrivalAirport ||
-        !departureDate ||
-        !returnDate
+        !departureDate
       ) {
         alert("Please select all options");
         return;
       }
-
+  
+      if (!oneWay && !returnDate) {
+        alert("Please select return date for round trip");
+        return;
+      }
+  
       if (!Data || !Data.flights) {
         console.error("Data or Data.flights is undefined");
         return;
       }
-
+  
       //loading
       await new Promise((resolve) => setTimeout(resolve, 2000));
-
+  
       const filteredFlights = Data.flights.filter((flight, index) => {
         return (
           flight.departureAirport === departureAirport &&
@@ -64,18 +68,31 @@ const Search = () => {
           (oneWay || new Date(flight.returnDate) <= returnDate)
         );
       });
-
+  
       setSearchResults(filteredFlights);
-
-      if (filteredFlights.length === 0) {
+  
+      if (filteredFlights.length === 0) { //flight error
         handleNoResultsPopup();
       }
+
+      if (Data.flights.length === 0) { //empty data
+        console.warn("Server returned empty data");
+      }
+
     } catch (error) {
       console.error("Error during search:", error);
+      if (error.response) {
+        console.error("Server responded with error:", error.response.data);
+      } else if (error.request) {
+        console.error("No response from the server:", error.request);
+      } else {
+        console.error("Error setting up the request:", error.message);
+      }
     } finally {
       setIsSearching(false);
     }
   };
+  
 
   // react-select options
   const airportOptions = Data.airports.map((airport) => ({
