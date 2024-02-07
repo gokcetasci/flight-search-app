@@ -1,13 +1,13 @@
 {
   "airports": [
-    {"code": "SAW", "city": "Istanbul"},
-    {"code": "ESB", "city": "Ankara"},
-    {"code": "FRA", "city": "Frankfurt"},
-    {"code": "LHR", "city": "London"},
-    {"code": "CDG", "city": "Paris"},
-    {"code": "JFK", "city": "New York"},
-    {"code": "AMS", "city": "Amsterdam"},
-    {"code": "HND", "city": "Tokyo"}
+    { "code": "SAW", "city": "Istanbul" },
+    { "code": "ESB", "city": "Ankara" },
+    { "code": "FRA", "city": "Frankfurt" },
+    { "code": "LHR", "city": "London" },
+    { "code": "CDG", "city": "Paris" },
+    { "code": "JFK", "city": "New York" },
+    { "code": "AMS", "city": "Amsterdam" },
+    { "code": "HND", "city": "Tokyo" }
   ],
   "flights": [
     {
@@ -18,17 +18,17 @@
       "oneWayFlight": false,
       "details": {
         "departureAirportName": "Sabiha Gokcen International Airport",
-        "returnAirportName":"Esenboga International Airport",
+        "returnAirportName": "Esenboga International Airport",
         "city": "Istanbul - Ankara",
-        "airline":"Flight Express",
+        "airline": "Flight Express",
         "firstDepartureTime": "12:00",
         "firstArrivalTime": "14:00",
         "firstFlightDuration": "2 hours",
-        "firstPrice": 250.00,
+        "firstPrice": 250.0,
         "secondDepartureTime": "03:30",
         "secondArrivalTime": "05:30",
         "secondFlightDuration": "2 hours",
-        "secondPrice": 450.00
+        "secondPrice": 450.0
       }
     },
     {
@@ -39,14 +39,16 @@
       "oneWayFlight": true,
       "details": {
         "departureAirportName": "Frankfurt Airport",
+        "arrivalAirportName": "Sabiha Gokcen International Airport",
         "city": "Frankfurt - Istanbul",
-        "airline":"Flight Express",
+        "airline": "Flight Express",
         "firstDepartureTime": "08:30",
         "firstArrivalTime": "11.30",
         "firstFlightDuration": "3 hours",
-        "firstPrice": 180.00
+        "firstPrice": 180.0
       }
-    },{
+    },
+    {
       "departureAirport": "SAW",
       "arrivalAirport": "FRA",
       "departureDate": "2024-03-05",
@@ -54,12 +56,13 @@
       "oneWayFlight": true,
       "details": {
         "departureAirportName": "Sabiha Gokcen International Airport",
+        "arrivalAirportName": "Frankfurt Airport",
         "city": "Istanbul - Frankfurt",
-        "airline":"Flight Express",
+        "airline": "Flight Express",
         "firstDepartureTime": "13:30",
         "firstArrivalTime": "16.30",
         "firstFlightDuration": "3 hours",
-        "firstPrice": 900.00
+        "firstPrice": 900.0
       }
     },
     {
@@ -70,17 +73,240 @@
       "oneWayFlight": false,
       "details": {
         "departureAirportName": "Esenboga International Airport",
-        "returnAirportName":"Frankfurt Airport",
+        "returnAirportName": "Frankfurt Airport",
         "city": "Ankara - Frankfurt",
-        "airline":"Flight Express",
+        "airline": "Flight Express",
         "firstDepartureTime": "18:00",
         "firstArrivalTime": "22:00",
         "firstFlightDuration": "4 hours",
-        "firstPrice": 360.00,
+        "firstPrice": 360.0,
         "secondDepartureTime": "07:30",
         "secondArrivalTime": "11:30",
         "secondFlightDuration": "4 hours",
-        "secondPrice": 670.00
+        "secondPrice": 670.0
+      }
+    },
+    {
+      "departureAirport": "LHR",
+      "arrivalAirport": "CDG",
+      "departureDate": "2024-02-18",
+      "returnDate": "2024-02-22",
+      "oneWayFlight": false,
+      "details": {
+        "departureAirportName": "London Heathrow Airport",
+        "returnAirportName": "Charles de Gaulle Airport",
+        "city": "London - Paris",
+        "airline": "Flight Express",
+        "firstDepartureTime": "09:00",
+        "firstArrivalTime": "12:00",
+        "firstFlightDuration": "4 hours",
+        "firstPrice": 450.0,
+        "secondDepartureTime": "12:30",
+        "secondArrivalTime": "16:30",
+        "secondFlightDuration": "4 hours",
+        "secondPrice": 540.0
+      }
+    },
+    {
+      "departureAirport": "JFK",
+      "arrivalAirport": "LHR",
+      "departureDate": "2024-02-12",
+      "returnDate": "2024-02-20",
+      "oneWayFlight": false,
+      "details": {
+        "departureAirportName": "John F. Kennedy International Airport",
+        "returnAirportName": "London Heathrow Airport",
+        "city": "New York - London",
+        "airline": "Transatlantic Airlines",
+        "firstDepartureTime": "14:30",
+        "firstArrivalTime": "17:30",
+        "firstFlightDuration": "7 hours",
+        "firstPrice": 650.0,
+        "secondDepartureTime": "02:00",
+        "secondArrivalTime": "05:00",
+        "secondFlightDuration": "7 hours",
+        "secondPrice": 750.0
+      }
+    },
+    {
+      "departureAirport": "AMS",
+      "arrivalAirport": "HND",
+      "departureDate": "2024-03-15",
+      "returnDate": null,
+      "oneWayFlight": true,
+      "details": {
+        "departureAirportName": "Amsterdam Airport Schiphol",
+        "arrivalAirportName": "Haneda Airport",
+        "city": "Amsterdam - Tokyo",
+        "airline": "Skyline Airlines",
+        "firstDepartureTime": "10:00",
+        "firstArrivalTime": "06:00",
+        "firstFlightDuration": "12 hours",
+        "firstPrice": 1100.0
+      }
+    },
+    {
+      "departureAirport": "CDG",
+      "arrivalAirport": "FRA",
+      "departureDate": "2024-04-02",
+      "returnDate": "2024-04-10",
+      "oneWayFlight": false,
+      "details": {
+        "departureAirportName": "Charles de Gaulle Airport",
+        "returnAirportName": "Frankfurt Airport",
+        "city": "Paris - Frankfurt",
+        "airline": "EuroConnect",
+        "firstDepartureTime": "09:30",
+        "firstArrivalTime": "11:30",
+        "firstFlightDuration": "2 hours",
+        "firstPrice": 220.0,
+        "secondDepartureTime": "16:00",
+        "secondArrivalTime": "18:00",
+        "secondFlightDuration": "2 hours",
+        "secondPrice": 180.0
+      }
+    },
+    {
+      "departureAirport": "HND",
+      "arrivalAirport": "SAW",
+      "departureDate": "2024-05-20",
+      "returnDate": "2024-05-25",
+      "oneWayFlight": false,
+      "details": {
+        "departureAirportName": "Haneda Airport",
+        "returnAirportName": "Sabiha Gokcen International Airport",
+        "city": "Tokyo - Istanbul",
+        "airline": "AsiaTurbo Airways",
+        "firstDepartureTime": "15:00",
+        "firstArrivalTime": "19:00",
+        "firstFlightDuration": "11 hours",
+        "firstPrice": 950.0,
+        "secondDepartureTime": "01:30",
+        "secondArrivalTime": "05:30",
+        "secondFlightDuration": "11 hours",
+        "secondPrice": 1100.0
+      }
+    },
+    {
+      "departureAirport": "ESB",
+      "arrivalAirport": "JFK",
+      "departureDate": "2024-06-10",
+      "returnDate": null,
+      "oneWayFlight": true,
+      "details": {
+        "departureAirportName": "Esenboga International Airport",
+        "arrivalAirportName": "John F. Kennedy International Airport",
+        "city": "Ankara - New York",
+        "airline": "Turkish Wings",
+        "firstDepartureTime": "20:00",
+        "firstArrivalTime": "00:30",
+        "firstFlightDuration": "11 hours",
+        "firstPrice": 850.0
+      }
+    },
+    {
+      "departureAirport": "FRA",
+      "arrivalAirport": "AMS",
+      "departureDate": "2024-07-15",
+      "returnDate": "2024-07-25",
+      "oneWayFlight": false,
+      "details": {
+        "departureAirportName": "Frankfurt Airport",
+        "returnAirportName": "Amsterdam Airport Schiphol",
+        "city": "Frankfurt - Amsterdam",
+        "airline": "EuroConnect",
+        "firstDepartureTime": "12:00",
+        "firstArrivalTime": "14:00",
+        "firstFlightDuration": "2 hours",
+        "firstPrice": 200.0,
+        "secondDepartureTime": "18:30",
+        "secondArrivalTime": "20:30",
+        "secondFlightDuration": "2 hours",
+        "secondPrice": 180.0
+      }
+    },
+    {
+      "departureAirport": "LHR",
+      "arrivalAirport": "JFK",
+      "departureDate": "2024-08-05",
+      "returnDate": "2024-08-15",
+      "oneWayFlight": false,
+      "details": {
+        "departureAirportName": "London Heathrow Airport",
+        "returnAirportName": "John F. Kennedy International Airport",
+        "city": "London - New York",
+        "airline": "Transatlantic Airlines",
+        "firstDepartureTime": "08:00",
+        "firstArrivalTime": "11:00",
+        "firstFlightDuration": "7 hours",
+        "firstPrice": 700.0,
+        "secondDepartureTime": "13:30",
+        "secondArrivalTime": "16:30",
+        "secondFlightDuration": "7 hours",
+        "secondPrice": 750.0
+      }
+    },
+    {
+      "departureAirport": "CDG",
+      "arrivalAirport": "HND",
+      "departureDate": "2024-09-20",
+      "returnDate": "2024-09-28",
+      "oneWayFlight": false,
+      "details": {
+        "departureAirportName": "Charles de Gaulle Airport",
+        "returnAirportName": "Haneda Airport",
+        "city": "Paris - Tokyo",
+        "airline": "AsiaTurbo Airways",
+        "firstDepartureTime": "14:30",
+        "firstArrivalTime": "10:30",
+        "firstFlightDuration": "11 hours",
+        "firstPrice": 1100.0,
+        "secondDepartureTime": "22:00",
+        "secondArrivalTime": "18:00",
+        "secondFlightDuration": "11 hours",
+        "secondPrice": 1000.0
+      }
+    },
+    {
+      "departureAirport": "SAW",
+      "arrivalAirport": "AMS",
+      "departureDate": "2024-10-10",
+      "returnDate": "2024-10-20",
+      "oneWayFlight": false,
+      "details": {
+        "departureAirportName": "Sabiha Gokcen International Airport",
+        "returnAirportName": "Amsterdam Airport Schiphol",
+        "city": "Istanbul - Amsterdam",
+        "airline": "EuroConnect",
+        "firstDepartureTime": "09:30",
+        "firstArrivalTime": "11:30",
+        "firstFlightDuration": "4 hours",
+        "firstPrice": 320.0,
+        "secondDepartureTime": "16:00",
+        "secondArrivalTime": "18:00",
+        "secondFlightDuration": "4 hours",
+        "secondPrice": 300.0
+      }
+    },
+    {
+      "departureAirport": "HND",
+      "arrivalAirport": "CDG",
+      "departureDate": "2024-11-15",
+      "returnDate": "2024-11-25",
+      "oneWayFlight": false,
+      "details": {
+        "departureAirportName": "Haneda Airport",
+        "returnAirportName": "Charles de Gaulle Airport",
+        "city": "Tokyo - Paris",
+        "airline": "AsiaTurbo Airways",
+        "firstDepartureTime": "13:00",
+        "firstArrivalTime": "09:00",
+        "firstFlightDuration": "12 hours",
+        "firstPrice": 950.0,
+        "secondDepartureTime": "21:30",
+        "secondArrivalTime": "17:30",
+        "secondFlightDuration": "12 hours",
+        "secondPrice": 900.0
       }
     }
   ]
