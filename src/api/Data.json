@@ -17,9 +17,10 @@
       "returnDate": "2024-02-15",
       "oneWayFlight": false,
       "details": {
-        "departureAirportName": "Sabiha Gökçen International Airport",
-        "returnAirportName":"Esenboğa International Airport",
+        "departureAirportName": "Sabiha Gokcen International Airport",
+        "returnAirportName":"Esenboga International Airport",
         "city": "Istanbul - Ankara",
+        "airline":"Flight Express",
         "firstDepartureTime": "12:00",
         "firstArrivalTime": "14:00",
         "firstFlightDuration": "2 hours",
@@ -39,6 +40,7 @@
       "details": {
         "departureAirportName": "Frankfurt Airport",
         "city": "Frankfurt - Istanbul",
+        "airline":"Flight Express",
         "firstDepartureTime": "08:30",
         "firstArrivalTime": "11.30",
         "firstFlightDuration": "3 hours",
@@ -51,8 +53,9 @@
       "returnDate": null,
       "oneWayFlight": true,
       "details": {
-        "departureAirportName": "Sabiha Gökçen International Airport",
+        "departureAirportName": "Sabiha Gokcen International Airport",
         "city": "Istanbul - Frankfurt",
+        "airline":"Flight Express",
         "firstDepartureTime": "13:30",
         "firstArrivalTime": "16.30",
         "firstFlightDuration": "3 hours",
@@ -66,9 +69,10 @@
       "returnDate": "2024-02-28",
       "oneWayFlight": false,
       "details": {
-        "departureAirportName": "Esenboğa International Airport",
+        "departureAirportName": "Esenboga International Airport",
         "returnAirportName":"Frankfurt Airport",
         "city": "Ankara - Frankfurt",
+        "airline":"Flight Express",
         "firstDepartureTime": "18:00",
         "firstArrivalTime": "22:00",
         "firstFlightDuration": "4 hours",
