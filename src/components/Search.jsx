@@ -187,7 +187,7 @@ const Search = () => {
           </div>
         </div>
         <div  className={`w-full flex items-center justify-center  ${searchResults.length > 0 ? "flex-col " : "flex-row md:space-x-6"}`}>
-          <div className={`${searchResults.length > 0 ? "mb-2" : ""}`}>
+          <div className={`${searchResults.length > 0 ? "mb-2" : "w-full"}`}>
             <div className="flex flex-row items-center">
               <MdDateRange className="fill-white ml-3 mr-2" />
               <label className="text-white font-semibold">DEPART:</label>
@@ -196,7 +196,7 @@ const Search = () => {
               selected={departureDate}
               onChange={(date) => setDepartureDate(date)}
               dateFormat="dd-MM-yyyy"
-              className="py-1.5 px-3 rounded-full border-[2px] border-white hover:border-[2px] hover:border-blue-700 focus:outline-none bg-blue-400/25 text-white cursor-pointer"
+              className="py-1.5 px-3 rounded-full border-[2px] border-white hover:border-[2px] hover:border-blue-700 focus:outline-none bg-blue-400/25 text-white cursor-pointer "
               placeholderText="Select Departure Date"
               wrapperClassName="date-picker-wrapper"
             />
