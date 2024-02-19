@@ -32,6 +32,27 @@
       }
     },
     {
+      "departureAirport": "SAW",
+      "arrivalAirport": "ESB",
+      "departureDate": "2024-02-08",
+      "returnDate": "2024-02-25",
+      "oneWayFlight": false,
+      "details": {
+        "departureAirportName": "Sabiha Gokcen International Airport",
+        "returnAirportName": "Esenboga International Airport",
+        "city": "Istanbul - Ankara",
+        "airline": "Flight Express",
+        "firstDepartureTime": "21:00",
+        "firstArrivalTime": "23:00",
+        "firstFlightDuration": "2 hours",
+        "firstPrice": 340.0,
+        "secondDepartureTime": "10:15",
+        "secondArrivalTime": "12:15",
+        "secondFlightDuration": "2 hours",
+        "secondPrice": 580.0
+      }
+    },
+    {
       "departureAirport": "FRA",
       "arrivalAirport": "SAW",
       "departureDate": "2024-03-05",
