@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# Flight Search App - AMADEUS TASK PROJECT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a flight ticket search application. If there is a one-way or two-way flight to the specified destinations on the specified dates, it lists the appropriate flights. 
 
-## Available Scripts
+## Project Note
+- React was used as the framework in the project. Tailwind CSS was used for styling, but in some cases inline css was also used. React-datepicker was used in the departure and return date input boxes and react-select was used for destination selection. A mock data was created for all API requests. Frontend works through requests made to this. All fields have been validated. All error situations from the server have been handled. At the same time, the situation of receiving empty data from the server was handled.
 
-In the project directory, you can run:
+# Live Preview
 
-### `npm start`
+You can access the live preview of the project [here.] [https://flight-search-app-five.vercel.app]
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Description of Project Pages
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Homepage**
+    - This is where the search and footer pages are displayed.
 
-### `npm test`
+- **Search**
+    - A search field has been created where departure airport, arrival airport, departure date and return date can be selected. An option was placed stating that it was a “one-way flight”. If this was selected, the return date was not entered. As soon as the departure and arrival airports are entered in the input boxes, airports can be searched by code and city. All error situations from the server have been handled.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Flight list**
+    - The results returned after searching are listed here. Flights listed are sorted by departure time, return time, flight length and price.
 
-### `npm run build`
+- **Loading Spinner** 
+    - A “loading” animation was shown to the user until a response was received from the server. React-spinners were used for this.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Loading Pop-Up**
+    - The loading spinner is shown here as a pop-up on the page.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Footer**
+    - This section is the footer of the site. There are features here such as social media icons and a form submission structure.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Packages Used and Versions
 
-### `npm run eject`
+- **react**: "^18.2.0",
+- **react-icons**: "^^5.0.1",
+- **react-scripts**: ^5.0.1
+- **react-datepicker**: "^6.0.0",
+- **tailwindcss**: "^3.4.1"
+- **react-router-dom**: "^6.20.1",
+- **react-dom**: "^18.2.0",
+- **react-router-dom**: "^6.22.0",
+- **react-select**: "^5.8.0",
+- **react-spinners**: "^0.13.8",
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Getting Started
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Git clone: `git clone https://github.com/gokcetasci/flight-search-app.git`
+2. Go to the project directory: `cd projectname`
+3. Install dependencies: `npm install`
+4. Once the project dependencies are installed, you can start the project using the `npm start` command.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Images
 
-## Learn More
+<img src="./src/images/Websitepage1.png" width="500" height="800">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+------------------------------------------------------------------------
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img src="./src/images/Websitepage2.png" width="500" height="800">
 
-### Code Splitting
+------------------------------------------------------------------------
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<img src="./src/images/Websitepage3.png" width="500" height="575">
 
-### Analyzing the Bundle Size
+------------------------------------------------------------------------
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<img src="./src/images/Websitepage4.png" width="500" height="500">
 
-### Making a Progressive Web App
+------------------------------------------------------------------------
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<img src="./src/images/Websitepage5.png" width="500" height="375">
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
