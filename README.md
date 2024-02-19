@@ -1,6 +1,6 @@
 # Flight Search App - AMADEUS TASK PROJECT
 
-This project is a flight ticket search application. If there is a one-way or two-way flight to the specified destinations on the specified dates, it lists the appropriate flights. 
+This project is a flight ticket search application. If there is a one-way or round-trip flight to the specified destinations on the specified dates, it lists the appropriate flights. 
 
 ## Project Note
 - React was used as the framework in the project. Tailwind CSS was used for styling, but in some cases inline css was also used. React-datepicker was used in the departure and return date input boxes and react-select was used for destination selection. A mock data was created for all API requests. Frontend works through requests made to this. All fields have been validated. All error situations from the server have been handled. At the same time, the situation of receiving empty data from the server was handled.
