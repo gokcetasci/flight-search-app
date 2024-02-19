@@ -55,10 +55,6 @@ You can access the live preview of the project [here.] [https://flight-search-ap
 
 ------------------------------------------------------------------------
 
-<img src="./src/images/Websitepage2.png" width="300" height="300">
-
-------------------------------------------------------------------------
-
 <img src="./src/images/Websitepage3.png" width="300" height="300">
 
 ------------------------------------------------------------------------
