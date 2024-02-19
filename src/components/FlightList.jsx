@@ -16,15 +16,15 @@ const FlightList = ({ searchResults, oneWay }) => {
             {searchResults.map((flight, index) => (
               <li
                 key={index}
-                className="bg-white rounded-3xl w-[1200px] mb-3"
+                className="bg-white rounded-3xl mb-3 flex"
                 style={{ boxShadow: "0 0 16px #172554" }}
               >
-                <div>
+                <div className="flex flex-col">
                   {!oneWay && flight.returnDate && (
                     <>
                       <div
                         id="roundtripdetails"
-                        className="bg-blue-400 py-4 px-12 rounded-t-3xl flex flex-row items-center justify-between"
+                        className="bg-blue-400 py-4 px-12 rounded-t-3xl flex flex-col md:flex-row items-center justify-between space-x-0 md:space-x-12 space-y-4 md:space-y-0"
                         style={{ boxShadow: "0 0 16px #64748b" }}
                       >
                         <div className="flex flex-row items-center justify-center">
@@ -35,7 +35,7 @@ const FlightList = ({ searchResults, oneWay }) => {
                         </div>
                         <div className="flex flex-col items-center justify-center">
                           {" "}
-                          <div className="flex flex-row items-center justify-center space-x-3 mr-5">
+                          <div className="flex flex-row items-center justify-center space-x-3 mr-0 md:mr-5 ">
                             <div className="flex flex-col items-center">
                               <p
                                 id="departureairport"
@@ -43,11 +43,11 @@ const FlightList = ({ searchResults, oneWay }) => {
                               >
                                 {flight.departureAirport}
                               </p>
-                              <p className="text-[14px] text-gray-200">
+                              <p className="text-[14px] text-gray-200 hidden md:flex">
                                 ( {flight.details.departureAirportName} )
                               </p>
                             </div>
-                            <FaArrowRightArrowLeft className="fill-indigo-700 mb-4" />
+                            <FaArrowRightArrowLeft className="fill-indigo-700 mb-0 md:mb-4" />
                             <div className="flex flex-col items-center">
                               <p
                                 id="arrivalairport"
@@ -55,7 +55,7 @@ const FlightList = ({ searchResults, oneWay }) => {
                               >
                                 {flight.arrivalAirport}
                               </p>
-                              <p className="text-[14px] text-gray-200">
+                              <p className="text-[14px] text-gray-200 hidden md:flex">
                                 ( {flight.details.returnAirportName} )
                               </p>
                             </div>
@@ -84,7 +84,7 @@ const FlightList = ({ searchResults, oneWay }) => {
                         </div>
                       </div>
 
-                      <div className="border-b p-5 flex items-center justify-around flex-row">
+                      <div className="border-b p-5 flex items-center space-y-4 md:space-y-0 justify-around flex-col md:flex-row">
                         <div className="flex flex-row items-center">
                           <RiPlanetFill className="mr-2 fill-indigo-600" />
                           <p className="text-indigo-600 font-medium">
@@ -101,7 +101,7 @@ const FlightList = ({ searchResults, oneWay }) => {
                           </p>
                         </div>
                         <div className="flex flex-row space-x-10">
-                          <p className="text-[24px] flex items-end">
+                          <p className="text-[24px] flex items-end pb-2">
                             {flight.details.firstDepartureTime}
                           </p>
                           <div className="flex flex-col items-center justify-center">
@@ -117,7 +117,7 @@ const FlightList = ({ searchResults, oneWay }) => {
                               <IoAirplaneSharp className="fill-blue-700 ml-1" />
                             </div>
                           </div>
-                          <p className="text-[24px] flex items-end">
+                          <p className="text-[24px] flex items-end pb-2">
                             {flight.details.firstArrivalTime}
                           </p>
                         </div>
@@ -134,7 +134,7 @@ const FlightList = ({ searchResults, oneWay }) => {
                         </div>
                       </div>
 
-                      <div className="flex flex-row items-center justify-around p-5">
+                      <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 justify-around p-5">
                         <div className="flex flex-row items-center">
                           <RiPlanetFill className="mr-2 fill-indigo-600" />
                           <p className="text-indigo-600 font-medium">
@@ -151,7 +151,7 @@ const FlightList = ({ searchResults, oneWay }) => {
                           </p>
                         </div>
                         <div className="flex flex-row space-x-10">
-                          <p className="text-[24px] flex items-end">
+                          <p className="text-[24px] flex items-end pb-2">
                             {flight.details.secondDepartureTime}
                           </p>
 
@@ -168,7 +168,7 @@ const FlightList = ({ searchResults, oneWay }) => {
                               <IoAirplaneSharp className="fill-blue-700 ml-1" />
                             </div>
                           </div>
-                          <p className="text-[24px] flex items-end">
+                          <p className="text-[24px] flex items-end pb-2">
                             {flight.details.secondArrivalTime}
                           </p>
                         </div>

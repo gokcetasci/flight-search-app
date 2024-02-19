@@ -27,9 +27,6 @@ function Footer() {
             <a href="/" className="hover:text-blue-600">
               Affiliates
             </a>
-            <a href="/" className="hover:text-blue-600">
-              Asvertise with us
-            </a>
           </div>
         </div>
         <div className="pt-6 hidden md:flex">

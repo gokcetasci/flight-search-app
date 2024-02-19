@@ -101,17 +101,17 @@ const Search = () => {
   }));
 
   return (
-    <div id="searchinput" className="w-full h-full flex items-center justify-center flex flex-col">
+    <div id="searchinput" className="w-full h-full flex items-center justify-center flex flex-col ">
       <div 
-        className={`backdrop-blur-sm bg-[#3b82f6]/50 rounded-3xl flex items-center justify-center ${
+        className={`backdrop-blur-sm bg-[#3b82f6]/50 rounded-3xl flex items-center justify-center  ${
           searchResults.length > 0
-            ? "w-11/12	 p-5 flex-row space-x-4"
+            ? "w-11/12 p-5 flex-col md:flex-row space-x-4"
             : "p-20 flex-col space-y-4"
         } `}
         style={{ boxShadow: "0 0 16px #bfdbfe" }}
       >
         <div
-          className={`w-full flex flex-row items-center justify-center mb-4 bg-transparent rounded-lg  `}
+          className={`w-full flex flex-row items-center justify-center mb-0 bg-transparent rounded-lg  `}
           style={{ boxShadow: "0 0 16px #bfdbfe" }}
         >
           <button id="roundtripbutton"
@@ -128,7 +128,7 @@ const Search = () => {
               setOneWay(true);
               setReturnDate(null);
             }}
-            className={`flex flex-row items-center justify-center text-white w-1/2 font-medium tracking-wide p-3 rounded-r-lg ${
+            className={`flex flex-row items-center justify-center text-white font-medium tracking-wide w-1/2 p-3 rounded-r-lg ${
               !oneWay ? "bg-blue-400/50 " : "bg-sky-500 "
             }`}
           >
@@ -137,11 +137,11 @@ const Search = () => {
           </button>
         </div>
         <div id="airports"
-          className={`flex items-center justify-center w-full  ${
-            searchResults.length > 0 ? "flex-col" : "flex-row md:space-x-6"
+          className={`flex flex-row gap-3 pt-3 md:pt-0 md:gap-0 items-center justify-evenly md:justify-center w-full ${
+            searchResults.length > 0 ? "flex-row md:flex-col" : "flex-row md:space-x-6"
           }`}
         >
-          <div id="departureairportselect" className={`${searchResults.length > 0 ? "mb-2" : ""}`}>
+          <div id="departureairportselect" className={`${searchResults.length > 0 ? "mb-0 md:mb-2" : ""}`}>
             <div className="flex flex-row items-center">
               <MdFlightTakeoff className="fill-white ml-3 mr-2" />
               <label className="text-white font-semibold">FROM:</label>
@@ -238,11 +238,11 @@ const Search = () => {
           </div>
         </div>
         <div id="date"
-          className={`w-full flex items-center justify-center  ${
-            searchResults.length > 0 ? "flex-col " : "flex-row md:space-x-6"
+          className={`w-full flex items-center justify-center pt-3 md:pt-0 gap-6 ${
+            searchResults.length > 0 ? "flex-row md:flex-col " : "flex-row "
           }`}
         >
-          <div id="departuredate" className={`${searchResults.length > 0 ? "mb-2" : "w-full"}`}>
+          <div id="departuredate" className={`${searchResults.length > 0 ? "mb-0 md:mb-2" : ""}`}>
             <div className="flex flex-row items-center">
               <MdDateRange className="fill-white ml-3 mr-2" />
               <label className="text-white font-semibold">DEPART:</label>
@@ -268,7 +268,7 @@ const Search = () => {
                 dateFormat="dd-MM-yyyy"
                 disabled={oneWay}
                 minDate={departureDate}
-                className="py-1.5 px-3 rounded-full border-[2px] border-white hover:border-[2px] hover:border-blue-700  bg-blue-400/25 focus:outline-none  text-white cursor-pointer"
+                className="py-1.5 px-3 rounded-full border-[2px] border-white hover:border-[2px] hover:border-blue-700 focus:outline-none bg-blue-400/25 text-white cursor-pointer w-full"
                 placeholderText="Select Return Date"
                 wrapperClassName="date-picker-wrapper"
               />
@@ -276,13 +276,13 @@ const Search = () => {
           )}
         </div>
         <div id="searchbutton"
-          className={`flex items-center justify-center pt-2 ${
+          className={`flex items-center justify-center pt-3 md:pt-2  ${
             searchResults.length > 0 ? "w-1/2" : "w-full "
           }`}
         >
           <button
             onClick={handleSearch}
-            className="py-3 w-full bg-blue-200 text-blue-700 rounded-full text-[18px] flex flex-row items-center justify-center hover:scale-105 font-semibold transition duration-300 ease-in-out"
+            className="py-3 w-full bg-blue-200 text-blue-700 rounded-full text-[18px] flex flex-row items-center justify-center hover:scale-105 font-semibold transition duration-300 ease-in-out "
             style={{ boxShadow: "0 0 16px #ffffff" }}
           >
             Search
