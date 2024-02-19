@@ -49,9 +49,6 @@ You can access the live preview of the project [here.] [https://flight-search-ap
 3. Install dependencies: `npm install`
 4. Once the project dependencies are installed, you can start the project using the `npm start` command.
 
-```bash
-npm start
-
 # Images
 
 <img src="./src/images/Websitepage1.png" width="500" height="800">
@@ -71,5 +68,8 @@ npm start
 ------------------------------------------------------------------------
 
 <img src="./src/images/Websitepage5.png" width="500" height="375">
+
+
+
 
 
