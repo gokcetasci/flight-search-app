@@ -51,23 +51,23 @@ You can access the live preview of the project [here.] [https://flight-search-ap
 
 # Images
 
-<img src="./src/images/Websitepage1.png" width="500" height="800">
+<img src="./src/images/Websitepage1.png" width="300" height="300">
 
 ------------------------------------------------------------------------
 
-<img src="./src/images/Websitepage2.png" width="500" height="800">
+<img src="./src/images/Websitepage2.png" width="300" height="300">
 
 ------------------------------------------------------------------------
 
-<img src="./src/images/Websitepage3.png" width="500" height="575">
+<img src="./src/images/Websitepage3.png" width="300" height="300">
 
 ------------------------------------------------------------------------
 
-<img src="./src/images/Websitepage4.png" width="500" height="500">
+<img src="./src/images/Websitepage4.png" width="300" height="300">
 
 ------------------------------------------------------------------------
 
-<img src="./src/images/Websitepage5.png" width="500" height="375">
+<img src="./src/images/Websitepage5.png" width="300" height="300">
 
 
 
